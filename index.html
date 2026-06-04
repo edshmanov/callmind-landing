@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CallMind AI — Never Miss a Lead Again</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#00C27C;
+  --green-dim:#00C27C22;
+  --dark:#080C0A;
+  --dark2:#0E1410;
+  --dark3:#141A16;
+  --border:#1E2820;
+  --text:#E8F0EA;
+  --muted:#6B7D70;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+/* NOISE OVERLAY */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(8,12,10,.85);backdrop-filter:blur(20px)}
+.logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.logo span{color:var(--green)}
+.nav-cta{background:var(--green);color:#000;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;padding:.5rem 1.25rem;border-radius:99px;text-decoration:none;letter-spacing:.02em;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,124,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);background:var(--dark2);border-radius:99px;padding:.35rem 1rem .35rem .6rem;font-size:.75rem;color:var(--muted);margin-bottom:2rem;letter-spacing:.05em;text-transform:uppercase}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.5rem;max-width:900px}
+h1 em{font-style:normal;color:var(--green)}
+.hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto 2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:var(--green);color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;padding:.9rem 2rem;border-radius:99px;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,194,124,.3)}
+.btn-secondary{background:transparent;color:var(--text);font-family:'Syne',sans-serif;font-weight:500;font-size:.95rem;padding:.9rem 2rem;border-radius:99px;text-decoration:none;border:1px solid var(--border);transition:all .2s;cursor:pointer}
+.btn-secondary:hover{border-color:var(--green);color:var(--green)}
+.hero-demo-num{font-size:.85rem;color:var(--muted)}
+.hero-demo-num a{color:var(--green);text-decoration:none;font-weight:500}
+
+/* PHONE MOCKUP */
+.phone-wrap{position:relative;max-width:340px;margin:0 auto;animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.phone{background:var(--dark2);border:1px solid var(--border);border-radius:20px;padding:1.5rem;text-align:left;position:relative;overflow:hidden}
+.phone::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent)}
+.phone-header{display:flex;align-items:center;gap:.5rem;margin-bottom:1.25rem;font-size:.75rem;color:var(--muted)}
+.phone-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.msg{margin-bottom:.75rem;display:flex;flex-direction:column;gap:.2rem}
+.msg-label{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.msg-bubble{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:.7rem 1rem;font-size:.82rem;line-height:1.5;max-width:90%}
+.msg-bubble.ai{border-color:rgba(0,194,124,.3);background:rgba(0,194,124,.06)}
+.msg-bubble.user{margin-left:auto;background:rgba(255,255,255,.05)}
+.lead-card{background:var(--dark3);border:1px solid rgba(0,194,124,.4);border-radius:12px;padding:1rem;margin-top:1rem;font-size:.78rem}
+.lead-card-title{color:var(--green);font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem}
+.lead-row{display:flex;gap:.5rem;padding:.25rem 0;border-bottom:1px solid var(--border);color:var(--muted)}
+.lead-row:last-child{border:none}
+.lead-row strong{color:var(--text);min-width:60px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:700px;margin:4rem auto}
+.stat{background:var(--dark2);padding:2rem;text-align:center}
+.stat-n{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--green);line-height:1}
+.stat-l{font-size:.8rem;color:var(--muted);margin-top:.4rem}
+
+/* SECTION */
+section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--green);margin-bottom:1rem;font-weight:500}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;line-height:1.1}
+.section-sub{font-size:1rem;color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:3rem}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.step{background:var(--dark2);padding:2rem;position:relative;transition:background .2s}
+.step:hover{background:var(--dark3)}
+.step-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--border);line-height:1;margin-bottom:1rem}
+.step-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.5rem;color:var(--text)}
+.step-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
+.step-icon{font-size:1.5rem;margin-bottom:.75rem}
+
+/* NICHES */
+.niches{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem}
+.niche{border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;font-size:.85rem;display:flex;align-items:center;gap:.75rem;transition:all .2s;cursor:default}
+.niche:hover{border-color:var(--green);background:var(--green-dim)}
+.niche-icon{font-size:1.2rem}
+
+/* PRICING */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.plan{background:var(--dark2);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all .2s;position:relative;overflow:hidden}
+.plan.popular{border-color:var(--green)}
+.plan.popular::before{content:'Most Popular';position:absolute;top:1rem;right:1rem;background:var(--green);color:#000;font-size:.65rem;font-weight:700;font-family:'Syne',sans-serif;padding:.25rem .75rem;border-radius:99px;letter-spacing:.05em;text-transform:uppercase}
+.plan-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.plan-price{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;line-height:1;margin-bottom:.25rem}
+.plan-per{font-size:.8rem;color:var(--muted);margin-bottom:1.5rem}
+.plan-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
+.plan-feat{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.plan-feat li{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:.6rem}
+.plan-feat li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0}
+.plan-btn{display:block;text-align:center;padding:.75rem;border-radius:99px;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .2s;border:1px solid var(--border);color:var(--text)}
+.plan-btn:hover{border-color:var(--green);color:var(--green)}
+.plan.popular .plan-btn{background:var(--green);color:#000;border-color:var(--green)}
+.plan.popular .plan-btn:hover{opacity:.85}
+
+/* TELEGRAM PREVIEW */
+.tg-demo{background:var(--dark2);border:1px solid rgba(0,194,124,.3);border-radius:20px;padding:1.5rem;max-width:400px}
+.tg-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.tg-avatar{width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.tg-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem}
+.tg-sub{font-size:.7rem;color:var(--green)}
+.tg-msg{font-size:.85rem;line-height:1.8;color:var(--text)}
+.tg-msg .tg-line{padding:.15rem 0}
+.tg-divider{height:1px;background:var(--border);margin:.5rem 0}
+.tg-time{font-size:.7rem;color:var(--muted);text-align:right;margin-top:.75rem}
+
+/* CTA SECTION */
+.cta-section{text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}
+.cta-glow{position:absolute;width:500px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,124,.1) 0%,transparent 70%);bottom:0;left:50%;transform:translateX(-50%);pointer-events:none}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.04em;margin-bottom:1rem}
+.cta-section p{color:var(--muted);margin-bottom:2rem;font-size:1rem}
+.demo-number{display:inline-flex;align-items:center;gap:.75rem;background:var(--dark2);border:1px solid var(--border);border-radius:99px;padding:.75rem 1.5rem;margin-top:1.5rem;font-size:.9rem;color:var(--muted)}
+.demo-number a{color:var(--green);font-weight:500;text-decoration:none;font-family:'Syne',sans-serif}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:.8rem;color:var(--muted)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Call<span>Mind</span> AI</div>
+  <a href="#pricing" class="nav-cta">Get Started</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge"><span class="hero-badge-dot"></span> Live AI Receptionist</div>
+  <h1>Your business never<br>misses a call <em>again</em></h1>
+  <p class="hero-sub">AI voice agent answers every call 24/7, collects customer info, and sends you a formatted lead instantly on Telegram.</p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn-primary">Start Free Trial →</a>
+    <a href="tel:+13133442483" class="btn-secondary">📞 Hear Demo</a>
+  </div>
+  <div class="hero-demo-num">Live demo: call <a href="tel:+13133442483">+1 (313) 344 2483</a> and pretend you need a plumber</div>
+</div>
+
+<div style="max-width:360px;margin:0 auto;padding:0 1rem 4rem">
+  <div class="phone">
+    <div class="phone-header"><span class="phone-dot"></span> Incoming call · Mike's Plumbing</div>
+    <div class="msg">
+      <div class="msg-label">AI Agent</div>
+      <div class="msg-bubble ai">Hi! Thanks for calling Mike's Plumbing — how can I help you today?</div>
+    </div>
+    <div class="msg">
+      <div class="msg-bubble user">Hi, I have a leaking pipe under my sink</div>
+    </div>
+    <div class="msg">
+      <div class="msg-bubble ai">I'm sorry to hear that! Can I get your name and best number to reach you?</div>
+    </div>
+    <div class="msg">
+      <div class="msg-bubble user">John Smith, 260-555-0198. Can someone come tomorrow?</div>
+    </div>
+    <div class="lead-card">
+      <div class="lead-card-title">📞 New Lead → Telegram</div>
+      <div class="lead-row"><strong>Name</strong> John Smith</div>
+      <div class="lead-row"><strong>Phone</strong> +1 260-555-0198</div>
+      <div class="lead-row"><strong>Address</strong> 123 Main St, Fort Wayne</div>
+      <div class="lead-row"><strong>Service</strong> Leaking pipe under sink</div>
+      <div class="lead-row"><strong>Time</strong> Tomorrow morning</div>
+    </div>
+  </div>
+</div>
+
+<div class="stats fade-up">
+  <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Always answers</div></div>
+  <div class="stat"><div class="stat-n">~$0.11</div><div class="stat-l">Per minute of call</div></div>
+  <div class="stat"><div class="stat-n">126×</div><div class="stat-l">ROI vs missed calls</div></div>
+</div>
+
+<section class="fade-up">
+  <div class="section-label">How it works</div>
+  <h2>Set up in 5 minutes.<br>Works forever.</h2>
+  <p class="section-sub">No technical knowledge needed. We configure everything for your business.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div class="step-icon">🏢</div><div class="step-title">Tell us about your business</div><div class="step-desc">Business name, services, timezone. Takes 2 minutes.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-icon">📞</div><div class="step-title">Get your AI phone number</div><div class="step-desc">A real US number assigned to your AI receptionist instantly.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-icon">💬</div><div class="step-title">Connect your Telegram</div><div class="step-desc">All leads go directly to your Telegram the moment the call ends.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-icon">💰</div><div class="step-title">Never miss a lead again</div><div class="step-desc">The average missed call costs $500–3000. AI pays for itself on day one.</div></div>
+  </div>
+</section>
+
+<section class="fade-up">
+  <div class="section-label">Industries</div>
+  <h2>Works for any<br>service business</h2>
+  <p class="section-sub">If your phone rings and you can't always answer — this is for you.</p>
+  <div class="niches">
+    <div class="niche"><span class="niche-icon">🔧</span> Handyman</div>
+    <div class="niche"><span class="niche-icon">💧</span> Plumber</div>
+    <div class="niche"><span class="niche-icon">⚡</span> Electrician</div>
+    <div class="niche"><span class="niche-icon">🏠</span> Roofing</div>
+    <div class="niche"><span class="niche-icon">🚗</span> Auto Repair</div>
+    <div class="niche"><span class="niche-icon">✂️</span> Beauty Salon</div>
+    <div class="niche"><span class="niche-icon">🌿</span> Landscaping</div>
+    <div class="niche"><span class="niche-icon">🏗️</span> Construction</div>
+    <div class="niche"><span class="niche-icon">🦷</span> Dentist</div>
+    <div class="niche"><span class="niche-icon">🏡</span> House Cleaning</div>
+    <div class="niche"><span class="niche-icon">❄️</span> HVAC</div>
+    <div class="niche"><span class="niche-icon">📦</span> Moving</div>
+  </div>
+</section>
+
+<section class="fade-up">
+  <div class="section-label">What you receive</div>
+  <h2>Every lead, perfectly<br>formatted</h2>
+  <p class="section-sub">As soon as the call ends, this hits your Telegram. No app needed, no dashboard to check.</p>
+  <div class="tg-demo">
+    <div class="tg-header">
+      <div class="tg-avatar">🤖</div>
+      <div><div class="tg-name">AI Receptionist Bot</div><div class="tg-sub">● online</div></div>
+    </div>
+    <div class="tg-msg">
+      <div class="tg-line">📞 <strong>New Lead!</strong></div>
+      <div class="tg-divider"></div>
+      <div class="tg-line">👤 <strong>Name:</strong> John Smith</div>
+      <div class="tg-line">📱 <strong>Phone:</strong> +1 (260) 555-0198</div>
+      <div class="tg-line">📍 <strong>Address:</strong> 123 Main St, Fort Wayne IN</div>
+      <div class="tg-line">🔧 <strong>Service:</strong> Leaking pipe under kitchen sink</div>
+      <div class="tg-line">📅 <strong>Time:</strong> Tomorrow at 10 AM</div>
+    </div>
+    <div class="tg-time">Just now</div>
+  </div>
+</section>
+
+<section id="pricing" class="fade-up">
+  <div class="section-label">Pricing</div>
+  <h2>Simple, transparent<br>pricing</h2>
+  <p class="section-sub">A live receptionist costs $2,800–4,500/month. Our AI costs 95% less and works 24/7.</p>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price">$97</div>
+      <div class="plan-per">/month</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-feat">
+        <li>1 dedicated phone number</li>
+        <li>Up to 200 calls/month</li>
+        <li>Telegram lead notifications</li>
+        <li>Custom business prompt</li>
+        <li>2-week free trial</li>
+      </ul>
+      <a href="mailto:edshmanov@gmail.com?subject=Starter Plan" class="plan-btn">Get Started</a>
+    </div>
+    <div class="plan popular">
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">$197</div>
+      <div class="plan-per">/month</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-feat">
+        <li>1 dedicated phone number</li>
+        <li>Unlimited calls</li>
+        <li>Telegram + WhatsApp</li>
+        <li>Custom AI personality</li>
+        <li>Priority support</li>
+        <li>2-week free trial</li>
+      </ul>
+      <a href="mailto:edshmanov@gmail.com?subject=Pro Plan" class="plan-btn">Get Started</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Agency</div>
+      <div class="plan-price">$397</div>
+      <div class="plan-per">/month</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-feat">
+        <li>Up to 5 phone numbers</li>
+        <li>Unlimited calls</li>
+        <li>White-label branding</li>
+        <li>Multiple businesses</li>
+        <li>Dedicated support</li>
+        <li>2-week free trial</li>
+      </ul>
+      <a href="mailto:edshmanov@gmail.com?subject=Agency Plan" class="plan-btn">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section fade-up">
+  <div class="cta-glow"></div>
+  <h2>Stop losing jobs<br>to voicemail</h2>
+  <p>Every missed call is a lost customer. Set up your AI receptionist today.</p>
+  <a href="mailto:edshmanov@gmail.com?subject=Free Trial" class="btn-primary">Start 2-Week Free Trial →</a>
+  <br>
+  <div class="demo-number">🎧 Try the live demo: call <a href="tel:+13133442483">+1 (313) 344 2483</a></div>
+</div>
+
+<footer>
+  © 2026 CallMind AI · Built for home service businesses · <a href="mailto:edshmanov@gmail.com" style="color:var(--green)">edshmanov@gmail.com</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(els => els.forEach(e => {if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(e => obs.observe(e));
+</script>
+</body>
+</html>
