@@ -20,15 +20,12 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--dark);color:var(--text);font-family:var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
-
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(8,12,10,.9);backdrop-filter:blur(20px)}
 .logo{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
 .logo span{color:var(--green)}
 .nav-cta{background:var(--green);color:#000;font-size:.82rem;font-weight:700;padding:.5rem 1.25rem;border-radius:99px;text-decoration:none;transition:opacity .2s}
 .nav-cta:hover{opacity:.85}
-
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 3rem;position:relative;overflow:hidden}
 .hero-glow{position:absolute;width:700px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,124,.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);background:var(--dark2);border-radius:99px;padding:.35rem 1rem .35rem .6rem;font-size:.75rem;color:var(--muted);margin-bottom:2rem;letter-spacing:.03em}
@@ -44,7 +41,6 @@ h1 em{font-style:normal;color:var(--green)}
 .btn-s:hover{border-color:var(--green);color:var(--green)}
 .demo-hint{font-size:.82rem;color:var(--muted)}
 .demo-hint a{color:var(--green);text-decoration:none;font-weight:600}
-
 .phone-wrap{max-width:340px;margin:0 auto;padding:0 1rem 4rem;animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .phone{background:var(--dark2);border:1px solid var(--border);border-radius:20px;padding:1.5rem;position:relative;overflow:hidden}
@@ -61,17 +57,14 @@ h1 em{font-style:normal;color:var(--green)}
 .lr{display:flex;gap:.5rem;padding:.2rem 0;border-bottom:1px solid var(--border);font-size:.78rem;color:var(--muted)}
 .lr:last-child{border:none}
 .lr strong{color:var(--text);min-width:55px;font-weight:600}
-
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:680px;margin:0 auto 5rem}
 .stat{background:var(--dark2);padding:1.75rem;text-align:center}
 .sn{font-size:2.4rem;font-weight:800;color:var(--green);line-height:1;letter-spacing:-.02em}
 .sl{font-size:.78rem;color:var(--muted);margin-top:.35rem}
-
 section{padding:5rem 2rem;max-width:1060px;margin:0 auto}
 .slbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--green);margin-bottom:.75rem;font-weight:600}
 h2{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem;line-height:1.12}
 .ssub{font-size:.95rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:2.5rem}
-
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden}
 .step{background:var(--dark2);padding:1.75rem;transition:background .2s}
 .step:hover{background:var(--dark3)}
@@ -79,11 +72,9 @@ h2{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;
 .sico{font-size:1.4rem;margin-bottom:.6rem}
 .stit{font-weight:700;font-size:.95rem;margin-bottom:.4rem}
 .sdesc{font-size:.82rem;color:var(--muted);line-height:1.6}
-
 .niches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.65rem}
 .niche{border:1px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;font-size:.82rem;display:flex;align-items:center;gap:.65rem;transition:all .2s}
 .niche:hover{border-color:var(--green);background:var(--green-dim)}
-
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
 .plan{background:var(--dark2);border:1px solid var(--border);border-radius:20px;padding:1.75rem;position:relative;overflow:hidden}
 .plan.pop{border-color:var(--green)}
@@ -99,7 +90,6 @@ h2{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;
 .pbtn:hover{border-color:var(--green);color:var(--green)}
 .plan.pop .pbtn{background:var(--green);color:#000;border-color:var(--green)}
 .plan.pop .pbtn:hover{opacity:.85}
-
 .tg-card{background:var(--dark2);border:1px solid rgba(0,194,124,.3);border-radius:18px;padding:1.4rem;max-width:380px}
 .tg-hdr{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
 .tg-av{width:34px;height:34px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
@@ -109,47 +99,61 @@ h2{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;
 .tg-row{padding:.1rem 0}
 .tg-sep{height:1px;background:var(--border);margin:.45rem 0}
 .tg-time{font-size:.68rem;color:var(--muted);text-align:right;margin-top:.65rem}
-
 .cta-wrap{text-align:center;padding:5rem 2rem;position:relative;overflow:hidden}
 .cta-glow{position:absolute;width:500px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,124,.08) 0%,transparent 70%);bottom:0;left:50%;transform:translateX(-50%);pointer-events:none}
 .cta-wrap h2{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;letter-spacing:-.035em;margin-bottom:.75rem}
 .cta-wrap p{color:var(--muted);margin-bottom:2rem;font-size:.95rem}
 .demo-num{display:inline-flex;align-items:center;gap:.65rem;background:var(--dark2);border:1px solid var(--border);border-radius:99px;padding:.65rem 1.4rem;margin-top:1.25rem;font-size:.85rem;color:var(--muted)}
 .demo-num a{color:var(--green);font-weight:600;text-decoration:none}
-
 footer{border-top:1px solid var(--border);padding:1.75rem 2rem;text-align:center;font-size:.78rem;color:var(--muted)}
 footer a{color:var(--green);text-decoration:none}
-
 .fade{opacity:0;transform:translateY(24px);transition:all .65s ease}
 .fade.in{opacity:1;transform:translateY(0)}
+.demo-section{padding:5rem 2rem;max-width:1060px;margin:0 auto}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:2rem}
+.demo-card{background:var(--dark2);border:1px solid var(--border);border-radius:20px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .2s}
+.demo-card:hover{border-color:rgba(0,194,124,.4)}
+.demo-card-top{display:flex;align-items:center;gap:.85rem}
+.demo-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.demo-icon.dental{background:rgba(0,194,124,.12)}
+.demo-icon.auto{background:rgba(59,130,246,.12)}
+.demo-icon.plumb{background:rgba(245,158,11,.12)}
+.demo-card h3{font-size:1rem;font-weight:700;letter-spacing:-.01em}
+.demo-card .agent-name{font-size:.72rem;color:var(--muted);margin-top:.15rem}
+.demo-card p{font-size:.82rem;color:var(--muted);line-height:1.65;flex:1}
+.call-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:.75rem;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text);font-family:var(--font);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.call-btn:hover{border-color:var(--green);color:var(--green)}
+.call-btn.calling{background:rgba(0,194,124,.12);border-color:var(--green);color:var(--green)}
+.call-btn .dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
+.call-btn.calling .dot{animation:blink 1s infinite}
+.status-bar{height:2px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:.25rem}
+.status-fill{height:100%;width:0;background:var(--green);border-radius:99px;transition:width .4s}
+.status-fill.active{animation:progress 30s linear forwards}
+@keyframes progress{from{width:0}to{width:100%}}
+.demo-note{text-align:center;font-size:.75rem;color:var(--muted);margin-top:1.25rem}
+.demo-note strong{color:var(--text)}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="logo">Call<span>Mind</span> AI</div>
   <a href="#pricing" class="nav-cta">Get Started</a>
 </nav>
-
 <div class="hero">
   <div class="hero-glow"></div>
   <div class="badge"><span class="badge-dot"></span> AI Voice Receptionist · Live 24/7</div>
   <h1>Your business never<br>misses a call <em>again</em></h1>
   <p class="hero-sub">AI answers every call, collects customer details, and sends you a clean lead card on Telegram — instantly.</p>
   <div class="hero-btns">
-    <a href="#pricing" class="btn-p">Start Free Trial →</a>
-    <a href="tel:+13133442483" class="btn-s">🎧 Hear Demo</a>
+    <a href="#demo" class="btn-p">🎧 Try Live Demo →</a>
+    <a href="#pricing" class="btn-s">See Pricing</a>
   </div>
-  <p class="demo-hint">Live demo: call <a href="tel:+13133442483">+1 (313) 344 2483</a> and pretend you need a plumber</p>
+  <p class="demo-hint">Talk to a real AI agent right now — no phone needed</p>
 </div>
-
 <div class="phone-wrap">
   <div class="phone">
     <div class="ph"><span class="ph-dot"></span> Incoming · Mike's Plumbing</div>
-    <div class="mb">
-      <div class="lbl">AI Agent</div>
-      <div class="bbl ai">Hi! Thanks for calling Mike's Plumbing — how can I help you today?</div>
-    </div>
+    <div class="mb"><div class="lbl">AI Agent</div><div class="bbl ai">Hi! Thanks for calling Mike's Plumbing — how can I help you today?</div></div>
     <div class="mb"><div class="bbl usr">Hi, I have a leaking pipe under my sink</div></div>
     <div class="mb"><div class="bbl ai">Sorry to hear that! Can I get your name and best number to reach you?</div></div>
     <div class="mb"><div class="bbl usr">John Smith, 260-555-0198. Can someone come tomorrow?</div></div>
@@ -163,13 +167,52 @@ footer a{color:var(--green);text-decoration:none}
     </div>
   </div>
 </div>
-
 <div class="stats fade">
   <div class="stat"><div class="sn">24/7</div><div class="sl">Always answers</div></div>
   <div class="stat"><div class="sn">$0.11</div><div class="sl">Per minute of call</div></div>
   <div class="stat"><div class="sn">126×</div><div class="sl">ROI vs missed calls</div></div>
 </div>
-
+<section id="demo" class="demo-section fade">
+  <div class="slbl">Live Demo</div>
+  <h2>Talk to an AI agent<br>right now</h2>
+  <p class="ssub">Pick a business type and start a real conversation in your browser. No phone needed — just click and talk.</p>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <div class="demo-card-top">
+        <div class="demo-icon dental">🦷</div>
+        <div><h3>Dental Clinic</h3><div class="agent-name">Agent: Sophie</div></div>
+      </div>
+      <p>Appointments, insurance questions, pricing, dental emergencies — Sophie handles every patient call professionally.</p>
+      <button class="call-btn" id="btn-dental" onclick="toggleCall('dental','8a38cc13-087f-4161-af22-3a298cb8ebd0')">
+        <span class="dot"></span><span class="btn-label">Call Sophie</span>
+      </button>
+      <div class="status-bar"><div class="status-fill" id="fill-dental"></div></div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-card-top">
+        <div class="demo-icon auto">🚗</div>
+        <div><h3>Auto Dealership</h3><div class="agent-name">Agent: Jake</div></div>
+      </div>
+      <p>Test drives, inventory, trade-ins, financing — Jake answers every car buyer question and books appointments.</p>
+      <button class="call-btn" id="btn-auto" onclick="toggleCall('auto','ca89213b-7b92-43a6-a64b-e4748617f3ec')">
+        <span class="dot"></span><span class="btn-label">Call Jake</span>
+      </button>
+      <div class="status-bar"><div class="status-fill" id="fill-auto"></div></div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-card-top">
+        <div class="demo-icon plumb">🔧</div>
+        <div><h3>Home Services</h3><div class="agent-name">Agent: Riley</div></div>
+      </div>
+      <p>Plumbing, HVAC, repairs — Riley captures every lead and schedules service calls around the clock.</p>
+      <button class="call-btn" id="btn-plumb" onclick="toggleCall('plumb','c2f9fed0-fac4-4bee-8243-8b05814f7b60')">
+        <span class="dot"></span><span class="btn-label">Call Riley</span>
+      </button>
+      <div class="status-bar"><div class="status-fill" id="fill-plumb"></div></div>
+    </div>
+  </div>
+  <p class="demo-note">🎙️ Allow microphone access when prompted. <strong>All demo calls are recorded for quality.</strong></p>
+</section>
 <section class="fade">
   <div class="slbl">How it works</div>
   <h2>Set up in 5 minutes.<br>Works forever.</h2>
@@ -181,7 +224,6 @@ footer a{color:var(--green);text-decoration:none}
     <div class="step"><div class="snum">04</div><div class="sico">💰</div><div class="stit">Never miss a lead again</div><div class="sdesc">Average missed call costs $500–3,000. AI pays for itself on day one.</div></div>
   </div>
 </section>
-
 <section class="fade">
   <div class="slbl">Industries</div>
   <h2>Works for any<br>service business</h2>
@@ -201,7 +243,6 @@ footer a{color:var(--green);text-decoration:none}
     <div class="niche">📦 Moving</div>
   </div>
 </section>
-
 <section class="fade">
   <div class="slbl">What you receive</div>
   <h2>Every lead, perfectly<br>formatted</h2>
@@ -223,75 +264,81 @@ footer a{color:var(--green);text-decoration:none}
     <div class="tg-time">Just now</div>
   </div>
 </section>
-
 <section id="pricing" class="fade">
   <div class="slbl">Pricing</div>
   <h2>Simple, transparent<br>pricing</h2>
   <p class="ssub">A live receptionist costs $2,800–4,500/month. Our AI costs 95% less and works 24/7.</p>
   <div class="plans">
     <div class="plan">
-      <div class="pname">Starter</div>
-      <div class="pprice">$97</div>
-      <div class="pper">/month</div>
-      <div class="pdiv"></div>
-      <ul class="pfeats">
-        <li>1 dedicated phone number</li>
-        <li>Up to 200 calls/month</li>
-        <li>Telegram lead notifications</li>
-        <li>Custom business prompt</li>
-        <li>2-week free trial</li>
-      </ul>
+      <div class="pname">Starter</div><div class="pprice">$97</div><div class="pper">/month</div><div class="pdiv"></div>
+      <ul class="pfeats"><li>1 dedicated phone number</li><li>Up to 200 calls/month</li><li>Telegram lead notifications</li><li>Custom business prompt</li><li>2-week free trial</li></ul>
       <a href="mailto:edshmanov@gmail.com?subject=Starter Plan" class="pbtn">Get Started</a>
     </div>
     <div class="plan pop">
-      <div class="pname">Pro</div>
-      <div class="pprice">$197</div>
-      <div class="pper">/month</div>
-      <div class="pdiv"></div>
-      <ul class="pfeats">
-        <li>1 dedicated phone number</li>
-        <li>Unlimited calls</li>
-        <li>Telegram + WhatsApp</li>
-        <li>Custom AI personality</li>
-        <li>Priority support</li>
-        <li>2-week free trial</li>
-      </ul>
+      <div class="pname">Pro</div><div class="pprice">$197</div><div class="pper">/month</div><div class="pdiv"></div>
+      <ul class="pfeats"><li>1 dedicated phone number</li><li>Unlimited calls</li><li>Telegram + WhatsApp</li><li>Custom AI personality</li><li>Priority support</li><li>2-week free trial</li></ul>
       <a href="mailto:edshmanov@gmail.com?subject=Pro Plan" class="pbtn">Get Started</a>
     </div>
     <div class="plan">
-      <div class="pname">Agency</div>
-      <div class="pprice">$397</div>
-      <div class="pper">/month</div>
-      <div class="pdiv"></div>
-      <ul class="pfeats">
-        <li>Up to 5 phone numbers</li>
-        <li>Unlimited calls</li>
-        <li>White-label branding</li>
-        <li>Multiple businesses</li>
-        <li>Dedicated support</li>
-        <li>2-week free trial</li>
-      </ul>
+      <div class="pname">Agency</div><div class="pprice">$397</div><div class="pper">/month</div><div class="pdiv"></div>
+      <ul class="pfeats"><li>Up to 5 phone numbers</li><li>Unlimited calls</li><li>White-label branding</li><li>Multiple businesses</li><li>Dedicated support</li><li>2-week free trial</li></ul>
       <a href="mailto:edshmanov@gmail.com?subject=Agency Plan" class="pbtn">Get Started</a>
     </div>
   </div>
 </section>
-
 <div class="cta-wrap fade">
   <div class="cta-glow"></div>
   <h2>Stop losing jobs<br>to voicemail</h2>
   <p>Every missed call is money left on the table. Fix it today.</p>
   <a href="mailto:edshmanov@gmail.com?subject=Free Trial" class="btn-p">Start 2-Week Free Trial →</a>
   <br>
-  <div class="demo-num">🎧 Live demo: call <a href="tel:+13133442483">+1 (313) 344 2483</a></div>
+  <div class="demo-num">🎧 Or try demo: <a href="#demo">Talk to an agent above</a></div>
 </div>
-
 <footer>
   © 2026 CallMind AI · Built for home service businesses · <a href="mailto:edshmanov@gmail.com">edshmanov@gmail.com</a>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web@latest/dist/vapi.umd.js"></script>
 <script>
-const o = new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
-document.querySelectorAll('.fade').forEach(e=>o.observe(e));
+const VAPI_KEY = '0e0c7ad8-a4b1-490e-968c-43503515ca93';
+let vapi = null;
+let activeAgent = null;
+function getVapi() {
+  if (!vapi) vapi = new Vapi(VAPI_KEY);
+  return vapi;
+}
+async function toggleCall(id, assistantId) {
+  if (activeAgent === id) { endCall(id); return; }
+  if (activeAgent) endCall(activeAgent);
+  startCall(id, assistantId);
+}
+async function startCall(id, assistantId) {
+  activeAgent = id;
+  const btn = document.getElementById('btn-' + id);
+  const fill = document.getElementById('fill-' + id);
+  btn.classList.add('calling');
+  btn.querySelector('.btn-label').textContent = 'Connecting...';
+  fill.classList.add('active');
+  try {
+    const v = getVapi();
+    v.on('call-start', () => { btn.querySelector('.btn-label').textContent = 'Connected — tap to end'; });
+    v.on('call-end', () => endCall(id));
+    v.on('error', () => endCall(id));
+    await v.start(assistantId);
+  } catch(e) { endCall(id); }
+}
+function endCall(id) {
+  if (vapi) { try { vapi.stop(); } catch(e){} }
+  activeAgent = null;
+  const btn = document.getElementById('btn-' + id);
+  const fill = document.getElementById('fill-' + id);
+  btn.classList.remove('calling');
+  const labels = { dental: 'Call Sophie', auto: 'Call Jake', plumb: 'Call Riley' };
+  btn.querySelector('.btn-label').textContent = labels[id];
+  fill.classList.remove('active');
+  fill.style.width = '0';
+}
+const obs = new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.fade').forEach(e=>obs.observe(e));
 </script>
 </body>
 </html>
